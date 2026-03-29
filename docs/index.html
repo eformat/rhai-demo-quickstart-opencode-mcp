@@ -66,6 +66,7 @@
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
   <script>
     // Send copied code to parent frame (rhai-workshop-plugin) for auto-paste into terminal
+    // Use capture phase so this fires before docsify-copy-code can stopPropagation
     document.addEventListener('click', function (e) {
       var btn = e.target.closest('.docsify-copy-code-button');
       if (!btn) return;
@@ -76,7 +77,7 @@
       if (text && window.parent !== window) {
         window.parent.postMessage({ type: 'copy', text: text }, '*');
       }
-    });
+    }, true);
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
@@ -87,7 +88,6 @@
   <script src="//unpkg.com/prismjs/components/prism-go.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-prism@latest/dist/docsify-prism.min.js"></script>
   <style>
     /* Red Hat Theme */
     :root {
