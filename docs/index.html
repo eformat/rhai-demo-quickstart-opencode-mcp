@@ -64,6 +64,20 @@
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+  <script>
+    // Send copied code to parent frame (rhai-workshop-plugin) for auto-paste into terminal
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest('.docsify-copy-code-button');
+      if (!btn) return;
+      var pre = btn.closest('pre');
+      if (!pre) return;
+      var code = pre.querySelector('code');
+      var text = (code || pre).textContent.trim();
+      if (text && window.parent !== window) {
+        window.parent.postMessage({ type: 'copy', text: text }, '*');
+      }
+    });
+  </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
