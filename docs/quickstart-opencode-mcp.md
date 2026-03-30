@@ -94,7 +94,13 @@ Follow these steps to access and start chatting with the LLM:
 
     ![images/mcps-opencode.png](images/mcps-opencode.png)
 
-1. Usee the weather mcp by prompting - `what is the weather in Brisbane today ?` (of course use your location !)
+1. Usee the weather mcp by prompting
+
+    ```bash
+    what is the weather in Brisbane today ?
+    ```
+
+    Of course use your location !
 
     ![images/weather-mcp.png](images/weather-mcp.png)
 
