@@ -1,4 +1,4 @@
-# Quickstart: Use MCP to check the weather
+# Quickstart: Use MCP with OpenCode
 
 <span class="badge">Duration: 5 minutes</span>
 <span class="badge">Topics: Getting started, Agents, CLI, MCP</span>
@@ -19,6 +19,7 @@
 - Install and configure OpenCode in your terminal
 - Connect to remote MCP servers running on OpenShift
 - Query real-time weather data through the LLM
+- List running containers on OpenShift using the OpenShift MCP server
 
 #### Why this matters
 
@@ -104,13 +105,23 @@ Follow these steps to access and start chatting with the LLM:
 
     ![images/weather-mcp.png](images/weather-mcp.png)
 
+1. Now use the OpenShift MCP server to query your running containers by prompting
+
+    ```bash
+    tell me what containers i have running in OpenShift. use get projects first as you don't have cluster rolebindings.
+    ```
+
+    The LLM will use the OpenShift MCP tools to list your projects, then fetch the running containers across your namespaces.
+
+    ![images/openshift-mcp.png](images/openshift-mcp.png)
+
 ---
 
 ### Verification
 
 <div class="alert alert-info">
   <strong>Check Your Progress</strong>
-  <p><strong>Question:</strong> Did you get OpenCode working OK with the weather MCP?</p>
+  <p><strong>Question:</strong> Did you get OpenCode working OK with the weather and OpenShift MCP servers?</p>
   <ul>
     <li><strong>Success:</strong> You have completed this task and can interact with the LLM.</li>
     <li><strong>Failed:</strong> This task isn't verified yet. Try the task again.</li>
@@ -121,12 +132,13 @@ Follow these steps to access and start chatting with the LLM:
 
 ## Conclusion
 
-**Congratulations!** You successfully completed the **Use MCP to Check the weather** quickstart.
+**Congratulations!** You successfully completed the **Use MCP with OpenCode** quickstart.
 
 You've learned how to:
 
 - Access OpenCode using the CLI interface with OpenShift
-- Interact with a weather MCP server to check your local weather.
+- Interact with a weather MCP server to check your local weather
+- Query running containers on OpenShift via the OpenShift MCP server
 
 ### Let's keep going!
 
