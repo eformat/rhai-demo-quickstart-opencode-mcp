@@ -93,6 +93,10 @@ Follow these steps to access and start chatting with the LLM:
 
 1. Ensure MCP Servers are connected - enter `/mcps` in OpenCode
 
+    ```bash
+    /mcps
+    ```
+
     ![images/mcps-opencode.png](images/mcps-opencode.png)
 
 1. Usee the weather mcp by prompting
