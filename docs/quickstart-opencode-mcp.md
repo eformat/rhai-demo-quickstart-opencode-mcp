@@ -55,7 +55,7 @@ Follow these steps to access and start chatting with the LLM:
     Set up the environment.
 
     ```bash
-    DEVWORKSPACE_NAMESPACE=user-x76st
+    echo "User is: $DEVWORKSPACE_NAMESPACE"
     GUID=${DEVWORKSPACE_NAMESPACE#user-}
     MCP_WEATHER_SVC=mcp-weather-$GUID.mcp-weather-user-$GUID.svc.cluster.local
     OCP_MCP_SVC=mcp-openshift-$GUID-kubernetes-mcp-server.mcp-openshift-user-$GUID.svc.cluster.local
