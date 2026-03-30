@@ -65,7 +65,7 @@
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
   <script>
-    // Send copied code to parent frame (rhai-workshop-plugin) for auto-paste into terminal
+    // Send copied code to top-level frame (rhai-workshop-plugin) for auto-paste into terminal
     // Use capture phase so this fires before docsify-copy-code can stopPropagation
     document.addEventListener('click', function (e) {
       var btn = e.target.closest('.docsify-copy-code-button');
@@ -74,8 +74,24 @@
       if (!pre) return;
       var code = pre.querySelector('code');
       var text = (code || pre).textContent.trim();
-      if (text && window.parent !== window) {
-        window.parent.postMessage({ type: 'copy', text: text }, '*');
+      if (!text) return;
+      // Copy to clipboard with fallback for unfocused nested iframes
+      if (navigator.clipboard && document.hasFocus()) {
+        navigator.clipboard.writeText(text).catch(function () {});
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      // Post to top-level frame for terminal auto-paste
+      if (window.top !== window) {
+        window.top.postMessage({ type: 'copy', text: text }, '*');
       }
     }, true);
   </script>
