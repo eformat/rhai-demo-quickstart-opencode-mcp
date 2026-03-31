@@ -197,12 +197,35 @@
     }
 
     /* Search */
-    .search input {
-      border: 2px solid #d2d2d2;
+    :root {
+      --search-input-color: #333333;
+      --search-input-background-color: #ffffff;
+      --search-input-placeholder-color: #999999;
+      --search-input-border-color: #d2d2d2;
+      --search-input-border-color--focus: #CC0000;
+      --search-result-heading-color: #333333;
+      --search-result-item-color: #555555;
     }
 
-    .search input:focus {
-      border-color: #CC0000;
+    .sidebar .search input,
+    .sidebar .search input[type="search"] {
+      color: #333333 !important;
+      background-color: #ffffff !important;
+      border: 2px solid #d2d2d2 !important;
+    }
+
+    .sidebar .search input:focus,
+    .sidebar .search input[type="search"]:focus {
+      border-color: #CC0000 !important;
+    }
+
+    .sidebar .search input::placeholder,
+    .sidebar .search input[type="search"]::placeholder {
+      color: #999999 !important;
+    }
+
+    .sidebar .search .clear-button {
+      color: #999999 !important;
     }
 
     /* Badges */
