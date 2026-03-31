@@ -1,4 +1,4 @@
-# Quickstart: Use MCP with OpenCode
+# Smart Start: Use MCP with OpenCode
 
 <span class="badge">Duration: 5 minutes</span>
 <span class="badge">Topics: Getting started, Agents, CLI, MCP</span>
@@ -157,4 +157,4 @@ You've learned how to:
 
 ---
 
-*Part of the Zero OpenShift AI Quickstart series*
+*Part of the Zero OpenShift AI Smart Start series*
